@@ -27,6 +27,17 @@ int main(){
     }
     printf("\nmovimento da RAINHA finalizada.\n");
     printf("\n===================================\n");
+
+    printf("Movimentação do CAVALO.\n\n");
+    for(i = 0; i <= 2; i++){
+        printf("baixo\n");
+        while (i == 2){
+        printf("Esquerda\n");
+        i++;
+        }
+    }
+    printf("\nmovimento da CAVALO finalizada.\n");
+    printf("\n===================================\n");
     printf("\nFim do experiento. Obrigado!.\n\n\n");
 
     return 0;
