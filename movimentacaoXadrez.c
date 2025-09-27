@@ -1,58 +1,71 @@
 #include <stdio.h>
+//MOVIMENTAÇÃO DA TORRE
+//recebe o valor 5 (numero de vezes que vai mover a torre) do chamado da função. Afunção chama a sí mesma com valor decrementado em 1 e move a torre enquando o valor da variavel de controle op for maior que 0.
+void movetorre(int op){
+	if(op > 0){		
+		printf("Direita\n");
+		movetorre(op -1);
+	}
+}
+
+//MOVIMENTAÇÃO DO BISPO
+void movebispo(int op){
+	if(op > 0){		
+		printf("Cima - Direita\n");
+		movebispo(op -1);
+	}
+}
+
+//MOVIMENTAÇÃO DA RAINHA
+void moverainha(int op){
+	if(op > 0){		
+		printf("Esquerda\n");
+		moverainha(op -1);
+	}
+}
+
 int main(){
-    int j = 0;
+
+    int passov= 0, passoh = 0, passot = 0;
     
-    //MOVIMENTAÇÃO DA TORRE
-    //A variável i não foi declarada fora do "for", pois ela só existe no contexto interno do for.
-    //iniciando de zero, vai movimentar para a direita e incrementar 1 na variável de controle i.
-    //quando a variável de controle i chegar a 5, o loop encerra e informa que o moviemto da TORRE foi finalizado.
+    //VER FUNÇÃO "movertorre" - Linha 4
     printf("Movimentação da TORRE.\n\n");
-    for (int i = 0; i < 5; i++)
-    {
-        printf("Direita\n");
-    }
+    movetorre(5);
     printf("\nmovimento da TORRE finalizada.\n");
     printf("\n===================================\n\n");
 
-    //MOVIMENTAÇÃO DO BISPO
-    //Primeiro movimenta o bisco, depois incrementa a variável de controle j.
-    //Se a variável de controle j ainda for menor que 5, movimenta novamente. 
-    //Quando a variáveld e controle j for igual a 5 o loop encerra e informa que o movimento do BISPO foi finalizado.
+    //VER FUNÇÃO "moverbispo" - Linha 12
     printf("Movimentação do BISPO.\n\n");
-    do{
-        printf("Cima - Direita\n");
-        j++;
-    } while (j < 5); 
+    movebispo(5);
     printf("\nmovimento do BISPO finalizada.\n");
     printf("\n===================================\n\n");
 
-    //MOVIMENTAÇÃO DA RAINHA
-    //como eu reutilizei a variável de controle j, precisei atribuir o valor 0 para ele novamente.
-    //Movimenta a peça e incrementa a variável de controle j. Repete o mobimento e o incremento enquanto a variável de controle for menor que 8.
-    //Quando a variável de controle j for igual a 8 o loop encerra e informa que o movimento da RAINHA foi finalizado.
+    //VER FUNÇÃO "moverainha" - Linha 20
     printf("Movimentação da RAINHA.\n\n");
-    j = 0;
-    while (j < 8)
-    {
-        printf("Esquerda\n");
-        j++;
-    }
+    moverainha(8);
     printf("\nmovimento da RAINHA finalizada.\n");
     printf("\n===================================\n");
 
     //MOVIMENTAÇÃO DO CAVALO
-    //A variável i não foi declarada fora do "for", pois ela só existe no contexto interno do for. Por isso a mesma variável pode ser declarada no movimento da TORRE e do CAVALO sem gerar conflito.
-    //Se a variável de controle for menor que 2, movimenta a peça para baixo e incrementa a variável de controle i. Repete o movimento se i ainda for menor que 2.
-    //Se a varivel de controle i for igual a 2, faz o movimento para a esquerda e incrementa a variável de controle i.
-    //Quando a variáel de controle i for igual a 2 o loop interno (while) executa e quando a variáel de controle i for igual a 3 o loop interno (while) encerra e informa que o movimento do CAVALO foi finalizado.
     printf("Movimentação do CAVALO.\n\n");
-    for(int i = 0; i < 2; i++){
-        printf("baixo\n");
-        while (i == 2){
-        printf("Esquerda\n");
-        i++;
-        }
-    }
+    while(passot < 3){
+    	if(passov < 2){
+		    printf("Cima \n");
+    	    passov++;
+    	    passot++;
+    	} else{
+    		while(passot < 3){
+    			if(passoh >= 1){
+					break;
+				} else{
+					printf("Direita \n");
+    				passoh++;
+    				passot++;
+    			}
+			}
+		}
+		continue;
+	}
     printf("\nmovimento da CAVALO finalizada.\n");
     printf("\n===================================\n");
     printf("\nFim do experiento. Obrigado!.\n\n\n");
