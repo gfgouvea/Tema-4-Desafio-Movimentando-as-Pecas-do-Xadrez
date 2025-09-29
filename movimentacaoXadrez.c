@@ -11,7 +11,12 @@ void movetorre(int op){
 //MOVIMENTAÇÃO DO BISPO
 void movebispo(int op){
 	if(op > 0){		
-		printf("Cima - Direita\n");
+		for (int i = 0; i < 5; i++){
+        printf("Cima - ");
+        for (int i = 0; i < 1; i++){
+            printf("Direita \n");
+        }
+    }
 		movebispo(op -1);
 	}
 }
@@ -36,7 +41,7 @@ int main(){
 
     //VER FUNÇÃO "moverbispo" - Linha 12
     printf("Movimentação do BISPO.\n\n");
-    movebispo(5);
+	movebispo(1);
     printf("\nmovimento do BISPO finalizada.\n");
     printf("\n===================================\n\n");
 
